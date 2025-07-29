@@ -714,30 +714,30 @@
                 const flower = document.createElement('div');
                 flower.classList.add('flower');
                 flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-                flower.style.left = ${Math.random() * 100}%;
-                flower.style.top = ${Math.random() * 100}%;
-                flower.style.animationDelay = ${Math.random() * 5}s;
-                flower.style.fontSize = ${Math.random() * 2 + 1}rem;
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.top = Math.random() * 100 + '%';
+                flower.style.animationDelay = Math.random() * 5 + 's';
+                flower.style.fontSize = (Math.random() * 2 + 1) + 'rem';
                 floatingFlowers.appendChild(flower);
             }
             
             // Create flower on touch
             document.addEventListener('touchstart', createTouchFlower);
             document.addEventListener('mousedown', createTouchFlower);
-            
+
             function createTouchFlower(e) {
                 const x = e.clientX || (e.touches && e.touches[0].clientX);
                 const y = e.clientY || (e.touches && e.touches[0].clientY);
-                
+
                 if (x && y) {
                     const flower = document.createElement('div');
                     flower.classList.add('touch-flower');
                     flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-                    flower.style.left = ${x}px;
-                    flower.style.top = ${y}px;
-                    flower.style.fontSize = ${Math.random() * 2 + 1.5}rem;
+                    flower.style.left = x + 'px';
+                    flower.style.top = y + 'px';
+                    flower.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
                     document.body.appendChild(flower);
-                    
+
                     setTimeout(() => {
                         flower.remove();
                     }, 3000);
@@ -798,12 +798,12 @@
                     setTimeout(() => {
                         const confetti = document.createElement('div');
                         confetti.classList.add('confetti');
-                        confetti.style.left = ${Math.random() * 100}vw;
-                        confetti.style.backgroundColor = hsl(${Math.random() * 360}, 70%, 60%);
-                        confetti.style.width = ${Math.random() * 10 + 5}px;
-                        confetti.style.height = ${Math.random() * 10 + 5}px;
+                        confetti.style.left = Math.random() * 100 + 'vw';
+                        confetti.style.backgroundColor = 'hsl(' + (Math.random() * 360) + ', 70%, 60%)';
+                        confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                        confetti.style.height = (Math.random() * 10 + 5) + 'px';
                         document.body.appendChild(confetti);
-                        
+
                         setTimeout(() => {
                             confetti.remove();
                         }, 5000);
@@ -818,7 +818,7 @@
             window.addEventListener('scroll', function() {
                 const scrollPosition = window.scrollY;
                 const hue = (scrollPosition / 10) % 360;
-                document.documentElement.style.setProperty('--pink-5', hsl(${hue}, 70%, 50%));
+                document.documentElement.style.setProperty('--pink-5', 'hsl(' + hue + ', 70%, 50%)');
             });
         });
     </script>
